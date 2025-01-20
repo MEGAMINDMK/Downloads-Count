@@ -9,3 +9,7 @@ php Downloads Count
 # full code
 ```
 [url="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"][img]https://img.shields.io/endpoint?url=https://rfsecurityservices.com/wn/vcmpgithubcount.php[/img][/url]
+```
+# will show as
+
+<a href="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"><img src="https://img.shields.io/endpoint?url=https://rfsecurityservices.com/wn/vcmpgithubcount.php" width="150" height="28"></a>
