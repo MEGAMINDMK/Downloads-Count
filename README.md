@@ -1,13 +1,11 @@
 # Downloads-Count
 php Downloads Count
 
-
-This will render as:
-
-```javascript
-function greet() {
-    console.log("Hello, world!");
-}
-
 # Usage
+```
+[url="your download url goes here"][url/] // if needed else the img section will display counts only
+[img]https://img.shields.io/endpoint?url=yoururlgoeshere[/img]
+```
+# full code
+```
 [url="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"][img]https://img.shields.io/endpoint?url=https://rfsecurityservices.com/wn/vcmpgithubcount.php[/img][/url]
