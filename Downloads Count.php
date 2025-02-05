@@ -1,3 +1,5 @@
+
+
 <?php
 
 // URLs for different sources
@@ -53,7 +55,6 @@ function getGTAInsideDownloadCount($url) {
 
 // Fetch SourceForge Download Count
 function getSourceForgeDownloadCount($url) {
-    // Initialize cURL session
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -61,26 +62,19 @@ function getSourceForgeDownloadCount($url) {
     $html = curl_exec($ch);
     curl_close($ch);
 
-    // Check if the request was successful
     if ($html === false) return 0;
 
-    // Create DOMDocument object and load the HTML content
     $dom = new DOMDocument();
-    libxml_use_internal_errors(true);  // Suppress warnings for malformed HTML
+    libxml_use_internal_errors(true);
     $dom->loadHTML($html);
-
-    // Create XPath object
     $xpath = new DOMXPath($dom);
-
-    // XPath query to find the element with total downloads
     $query = "//strong[@id='data-total']";
     $nodeList = $xpath->query($query);
 
-    // Return total downloads if found, otherwise return 0
     return ($nodeList->length > 0) ? intval(trim($nodeList->item(0)->nodeValue)) : 0;
 }
 
-// Fetch LibertyCity Download Count (Total Downloads)
+// Fetch LibertyCity Download Count
 function getLibertyCityDownloadCount($url) {
     $html = @file_get_contents($url);
     if ($html === false) return 0;
@@ -89,8 +83,6 @@ function getLibertyCityDownloadCount($url) {
     libxml_use_internal_errors(true);
     $dom->loadHTML($html);
     $xpath = new DOMXPath($dom);
-
-    // Extract total downloads from <div>Total downloads: X</div>
     $query = "//div[contains(text(), 'Total downloads:')]";
     $nodeList = $xpath->query($query);
 
@@ -130,21 +122,21 @@ $moddb_downloads = getModDBDownloadCount($moddb_url);
 $github_downloads = getGitHubDownloadCount($github_repo);
 
 // Calculate total downloads
-$total_downloads = $gtainside_downloads + $sourceforge_downloads + $libertycity_downloads + $moddb_downloads + $github_downloads;
+//$total_downloads = $gtainside_downloads + $sourceforge_downloads + $libertycity_downloads + $moddb_downloads + $github_downloads;
+$total_downloads = $gtainside_downloads + $sourceforge_downloads + $libertycity_downloads + $moddb_downloads;
+// Format the output for Shields.io compatibility
+$badge_message = $total_downloads;
+$badge_color = "brightgreen"; // You can adjust this based on your preferences
 
-// Output JSON
+// Output JSON for Shields.io
 header('Content-Type: application/json');
 echo json_encode([
     'schemaVersion' => 1,
-    'platforms' => [
-        'GTAInside' => $gtainside_downloads,
-        'SourceForge' => $sourceforge_downloads,
-        'LibertyCity' => $libertycity_downloads,
-        'ModDB' => $moddb_downloads,
-        'GitHub' => $github_downloads
-    ],
-    'totalDownloads' => $total_downloads,
-    'color' => 'brightgreen'
+    'label' => 'Other Platforms Downloads',
+    'message' => $badge_message,
+    'color' => $badge_color
 ]);
+
+
 
 ?>
