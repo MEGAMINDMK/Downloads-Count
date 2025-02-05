@@ -125,14 +125,14 @@ $github_downloads = getGitHubDownloadCount($github_repo);
 //$total_downloads = $gtainside_downloads + $sourceforge_downloads + $libertycity_downloads + $moddb_downloads + $github_downloads;
 $total_downloads = $gtainside_downloads + $sourceforge_downloads + $libertycity_downloads + $moddb_downloads;
 // Format the output for Shields.io compatibility
-$badge_message = $total_downloads;
+$badge_message = "Downloads: $total_downloads";
 $badge_color = "brightgreen"; // You can adjust this based on your preferences
 
 // Output JSON for Shields.io
 header('Content-Type: application/json');
 echo json_encode([
     'schemaVersion' => 1,
-    'label' => 'Other Platforms Downloads',
+    'label' => 'Other Platforms',
     'message' => $badge_message,
     'color' => $badge_color
 ]);
