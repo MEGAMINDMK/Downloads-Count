@@ -12,4 +12,4 @@ php Downloads Count
 ```
 # will show as
 
-<a href="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"><img src="https://img.shields.io/endpoint?url=https://rfsecurityservices.com/wn/vcmpgithubcount.php"></a>
+<a href="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"><img src="https://img.shields.io/endpoint?url=https://pactumgrp.com/wn/vcmpgithubcount.php"></a>
