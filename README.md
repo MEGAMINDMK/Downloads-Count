@@ -8,7 +8,7 @@ php Downloads Count
 ```
 # full code
 ```
-[url="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"][img]https://img.shields.io/endpoint?url=https://rfsecurityservices.com/wn/vcmpgithubcount.php[/img][/url]
+[url="https://github.com/MEGAMINDMK/VCMP-BROWSER/releases/latest/download/Setup.exe"][img]https://img.shields.io/endpoint?url=https://pactumgrp.com/wn/vcmpgithubcount.php[/img][/url]
 ```
 # will show as
 
